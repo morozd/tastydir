@@ -1,0 +1,42 @@
+=== Version 1.2 ===
+1200:
+	Submitted to Envato (CodeCanyon).
+1205:
+	Added changelog (lol).
+	Minor CSS update on buttons.
+	Prevented direct access to common.php and install.php.
+1210:
+	Submission to Envato soft-rejected, adding more documentation.
+	Added documentation in /doc.
+	Small optimizations.
+1212:
+	Approved by Envato.
+	Fixed bug where trying to upload a file without actually selecting one hid the form.
+	Fixed a bug where the file override warning in the upload function would show an incorrect or blank name.
+1213:
+	Changed vladh.net/projects/tastydir link to tastydev.net/#tastydir.
+	Revision number now visible by hovering over version number.
+	Changed bottom border on tooltip links to match abbr and be more subtle.
+1214:
+	Fixed typo ("755 or 755" instead of "755 or 777") in install.php.
+	Fixed a bug where files with quotes/apostrophes in their names would cause problems.
+		When working with these files, the user would be informed that the file doesn't exist.
+1215:
+	Added support for changing the home directory (top of common.php).
+1216:
+	PHP4 and early PHP5 now work properly ( they don't have json_encode :( ).
+	Tastydir no longer incorrectly trips some antivirus programs.
+	Fixed a silly "path not defined" problem in common.php.
+1217:
+	Fixed a problem where POSIX functions not being available on some Linux systems
+		caused index.php to show up as blank due to a fatal error.
+	Added error_reporting(E_ALL), to make errors easier to identify.
+1250:
+	Added two heavily requested features:
+	- unless you're logged in, the top address bar doesn't show the full path, but the relative path.
+	- added previous/next buttons on images for an image gallery-style effect.
+1251:
+	Password input in install.php is now an actual password input.
+	When editing files, saving the file no longer closes the dialog, making it more suitable for programmers.
+
+~vladh (vladh.net)

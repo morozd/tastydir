@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Tastydir Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+		h4{ font-size:22px; padding-left:30px; border-bottom:1px #ccc solid; margin-bottom:13.5px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Tastydir&rdquo; Documentation by &ldquo;vladh&rdquo; v1.2<br><br><strong>This is for programmers!</strong> If you don't want to modify Tastydir, just go ahead and install it.</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Tastydir&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 09/08/2010<br>
+					By: vladh (<a href="http://vladh.net">vladh.net</a>)<br>
+					Email: <a href="mailto:vlad@vladh.net">vlad@vladh.net</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thanks for purchasing Tastydir! If you have any questions or encounter any problems, please feel free to send me an email!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#css">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript and PHP (with AJAX)</a></li>
+			<li><a href="#info">Additional info</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>Tastydir's layout is separated into six sections.</p>
+		
+		<ul>
+			<li>#header</li>
+			<li>#nav</li>
+			<li>#path</li>
+			<li>#body</li>
+			<li>#bottombar <em class="small quiet">(only visible while copying/moving files)</em></li>
+			<li>#footer</li>
+		</ul>
+		
+		<h4>#header</h4>
+		
+			<p>The <strong>#header</strong> div contains an &lt;h1&gt; tag. The text inside this tag corresponds to the text in the logo, although the logo is actually an image - this is done to help search engines. Please check out the <a href="#css">CSS Files and Structure</a> section for further instructions on changing the logo.</p>
+		
+		<h4>#nav</h4>
+		
+			<p>The <strong>#nav</strong> div contains:</p>
+			<ul>
+				<li>#navnav</li>
+				<li>#meta</li>
+			</ul>
+			<p>The former contains navigation buttons with straightforward onclick attributes, such as <em class="quiet">history.go(-1)</em>.<br>
+			The latter contains <strong>div.item</strong> elements separated by <strong>div.sep</strong> separators. The first <strong>div.item</strong> in the code is the rightmost, the last is the leftmost. The aforementioned items are actually the login section and the info tooltip - again, pretty straightforward.</p>
+			
+		<h4>#path</h4>
+		
+			<p>The <strong>#nav</strong> div has a slightly deeper structure, so here's an example:</p>
+<pre>
+div#path
+....div.pathpart{
+........a#path1{
+............home
+............div.breadcrumb{}
+........}
+....}
+</pre>
+			<p>Where <strong>div.pathpart</strong> is the section of the path, <strong>a#path1</strong> is the link that changes the directory to that path, and <strong>div.breadcrumb</strong> is the arrow separator.</p>
+			
+		<h4>#body</h4>
+		
+			<p>Initially, this contains: table-containing div (<strong>div#files_outer</strong>), files table (<strong>table#files_table</strong>), table header (<strong>thead#files_head</strong>), table body - where the files go (<strong>tbody#files</strong>).<br>
+			Then, Javascript does something like this for every file/folder.</p>
+<pre>
+Folder:
+tr #folder0 .frow
+....td .fcell .folder
+........a .fname .folder [href=path]{ folder name }
+....td
+........span .fsize{}
+....td
+........a .fperms
+............span (.ok, .no, or no class){ drwxr-xr-x }
+....td .actions
+........img .action_editfolder
+........img .action_deletefolder
+
+File:
+tr #file0 .frow
+....td .fcell .file
+........a .fname .file .action_downloadfile [href=_tastydir/do.php?download=path] [style=background image that changes with extension]{ file name }
+....td
+........span .fsize{191.00 B}
+....td
+........a .fperms
+............span (.ok, .no, or no class){ drwxr-xr-x }
+....td .actions
+........img .action_editfile
+........img .action_deletefile
+........img .action_copyfile
+</pre>
+		<p>There's a lot of Javascript stuff going on here, and you can read about that in the <a href="#javascript">JavaScript and PHP (with AJAX)</a> section.</p>
+			
+		<h4>#bottombar</h4>
+		
+			<p>The <strong>#bottombar</strong> div contains:</p>
+			<ul>
+				<li>#bottombar_l <em class="small quiet">(floats left, has some text)</em></li>
+				<li>#bottombar_r <em class="small quiet">(floats right, has some links with basic onclick attributes)</em></li>
+			</ul>
+			<p>Nothing really interesting here.</p>
+			
+		<h4>#footer</h4>
+		
+			<p>This div contains:</p>
+			<ul>
+				<li>#makefiles <em class="small quiet">(basic links, similar in structure to <strong>#meta</strong> (see above))</em></li>
+				<li>#uploadfile <em class="small quiet">(your usual hidden iframe hacky file upload)</em></li>
+			</ul>
+			<p>Again, pretty simple.</p>
+			
+		<hr>
+
+		<h3 id="css"><strong>B) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>Tastydir only uses one CSS file - <strong>_tastydir/style.css</strong>. This contains:</p>
+
+		<ul>
+			<li>My css reset</li>
+			<li>Actual tastydir styling</li>
+			<li>jQuery UI styling</li>
+		</ul>
+		
+		<p>You can find details about the CSS reset in the CSS itself. As for the jQuery UI styling, it's pretty long - please don't try to edit it manually. Instead, use jQuery's <a href="http://jqueryui.com/themeroller/">themeroller</a> to make a jQuery UI theme.</p>
+		
+		<p>As for the actual styling, it's pretty self-explanatory and similar in structure to the HTML. You may want to <strong>change the logo</strong> though, so here's how:</p>
+		
+		<ul>
+			<li>Edit logo.png using the PSD file I've provided. <em class="quiet">(path: _tastydir/images/logo.png|psd. the font is Museo Slab, and you can get it <a href="http://new.myfonts.com/fonts/exljbris/museo-slab/">here</a>)</em></li>
+			<li>Update the width and height in style.css(search for <strong>#header h1</strong>)</li>
+			<li>Update the content of #header h1 in index.php to reflect the content of your new logo <em class="small quiet">(it's good for search engines!)</em></li>
+			<li>You're all done!</li>
+		</ul>
+
+		<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript and PHP (with AJAX)</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Since Tastydir mainly uses AJAX, most of its core functionality is in the Javascript.</p>
+		<p>The main Javascript file is located in <strong>_tastydir/js/site.js</strong> <em style="quiet">(this file also has awesome ASCII art headings!)</em> - it makes requests to <strong>_tastydir/do.php</strong>, which actually performs file operations.
+		Other files: <strong>_tastydir/common.php</strong> <em class="quiet">(common functions etc.)</em>, <strong>_tastydir/install.php</strong> <em class="quiet">(install scripts)</em>.</p>
+		
+		<p>Tastydir uses some pretty complicated Javascript, and documenting all of it would be very difficult. Instead, I'll just outline a basic request/file operation. Let's have a look at file editing:</p>
+		
+		<ul>
+			<li>The user clicks an image with the class .action_editfile, which is bound to the <strong>editFileDialog()</strong> function - the click handler looks through the DOM for the name of the file to edit (it's associated with the image the user clicked), and passes it to the function.</li>
+			<li><strong>editFileDialog()</strong> performs a <strong>getf</strong> request - this returns the file's contents, which are then displayed to the user.</li>
+			<li>The user edits the file, and clicks the Edit button. If the filename has changed, the <strong>moveFile()</strong> function is called, which does a bunch of other stuff to move the file. Then, <strong>writeFile()</strong> writes the new data to either the original (if unchanged) or new filename.<li>
+			<li>To do so, <strong>writeFile()</strong> sends an <strong>editf</strong> request using POST - this request contains the new file data.</li>
+		</ul>
+		
+		<p><strong>Additional example:</strong> if the user was actually creating a new file, the same operations would be performed, with two main differences:</p>
+		
+		<ul>
+			<li>There would be no existing file to be moved, so no moving.</li>
+			<li>A <strong>fcheck</strong> request would be sent to check if the file already exists - if it does, the user is presented with an overwrite confirmation dialog.</li>
+		</ul>
+		
+		<p><strong>Also:</strong> all of these requests return a status code (each request has a custom set of them), which is then checked by the Javascript - which either continues the operation or presents the user with an error or confirmation dialog.</p>
+		
+		<p><strong>Remember:</strong> there are many such requests, so good luck!</p>
+		<hr>
+		
+		<h3 id="info"><strong>D) Additional info</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Please read the <strong>README</strong> file for additional information and credits.</p>
+		
+		<hr>
+		
+		<p>Once again, thank you for purchasing Tastydir. Feel free to email me regarding any issues or questions you may have, and I'll do my best to help. Have a nice day!</p> 
+		
+		<p class="append-bottom alt large"><strong>Vlad Harbuz (<a href="http://vladh.net">vladh.net</a>)</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
