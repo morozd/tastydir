@@ -3,7 +3,7 @@
 // Tastydir is copyright Vlad Harbuz (vladh.net)
 
 define('TASTYDIR_VERSION','1.2');
-define('TASTYDIR_SUBVERSION','1251');
+define('TASTYDIR_SUBVERSION','1252');
 
 error_reporting(E_ALL);
 

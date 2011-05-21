@@ -3,7 +3,7 @@
 // Tastydir is copyright Vlad Harbuz (vladh.net)
 
 define('TASTYDIR_VERSION','1.2');
-define('TASTYDIR_SUBVERSION','1251');
+define('TASTYDIR_SUBVERSION','1252');
 
 error_reporting(0);
 
@@ -538,6 +538,28 @@ if(!empty($_GET['download'])){
 				$mime='text/plain';
 			}else if(in_array($fext,$ext['img'])){
 				$mime='image/'.str_replace('jpg','jpeg',str_replace('apng','png',$fext));
+			}else if(in_array($fext,$ext['video'])){
+				$mime='video/'.str_replace('mov','quicktime',str_replace('wmv','x-ms-wmv',str_replace('mpg','mpeg',$fext)));
+			}else if(in_array($fext,$ext['psd'])){
+				$mime="application/psd";
+			}else if(in_array($fext,$ext['ai'])){
+				$mime="application/illustrator";
+			}else if(in_array($fext,$ext['pdf'])){
+				$mime="application/pdf";
+			}else if($fext=='xls'){
+				$mime="application/vnd.ms-excel";
+			}else if($fext=='xlsx'){
+				$mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+			}else if($fext=='xls'){
+				$mime="application/vnd.ms-powerpoint";
+			}else if($fext=='xlsx'){
+				$mime="application/vnd.openxmlformats-officedocument.presentationml.presentation";
+			}else if($fext=='xls'){
+				$mime="application/vnd.ms-word";
+			}else if($fext=='xlsx'){
+				$mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+			}else if($fext=='swf'){
+				$mime="application/x-shockwave-flash";
 			}else if(in_array($fext,$ext['audio'])){
 				switch($fext){
 					case 'mp3':

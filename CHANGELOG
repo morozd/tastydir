@@ -38,5 +38,7 @@
 1251:
 	Password input in install.php is now an actual password input.
 	When editing files, saving the file no longer closes the dialog, making it more suitable for programmers.
+1252:
+	Made all MIME types work properly.
 
 ~vladh (vladh.net)
