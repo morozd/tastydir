@@ -325,6 +325,7 @@ table{
 #everything{
 	text-align:left;
 	margin:30px auto;
+	width:80%;
 }
 #everything.fixed{
 	width:960px;
