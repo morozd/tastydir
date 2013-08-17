@@ -34,11 +34,11 @@ Copyright Vlad-Ștefan Harbuz (vladh.net)
 Additional credits:
 
 - Icons:
-- * Silk icons 					cc-by 2.5		http://www.famfamfam.com/lab/icons/silk/
-- * LED icons  					-				http://led24.de/iconset/
+	* Silk icons 					cc-by 2.5		http://www.famfamfam.com/lab/icons/silk/
+	* LED icons  					-				http://led24.de/iconset/
 - jQuery:
-- * jQuery						MIT license		http://jquery.com/
-- * jQuery hashchange event		MIT, GPL		http://benalman.com/projects/jquery-hashchange-plugin/
-- * Tipsy						MIT				http://plugins.jquery.com/project/tipsy
+	* jQuery						MIT license		http://jquery.com/
+	* jQuery hashchange event		MIT, GPL		http://benalman.com/projects/jquery-hashchange-plugin/
+	* Tipsy						MIT				http://plugins.jquery.com/project/tipsy
 - Other:
-- * jQuery UI CSS framework		MIT, GPL		http://jqueryui.com/themeroller/
+	* jQuery UI CSS framework		MIT, GPL		http://jqueryui.com/themeroller/
